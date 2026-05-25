@@ -32,6 +32,13 @@ app.get("/notes", (req, res) => {
   res.json([{ title: "Sample Note", content: "This is a sample note." }]);
 });
 
+app.put("/notes/:id", (req, res) => {
+  const { id } = req.params;
+  const { title, content } = req.body;
+  // Here you would typically update the note in the database
+  res.json({ id, title, content });
+});
+
 app.delete("/notes/:id", (req, res) => {
   const { id } = req.params;
   // Here you would typically delete the note from the database
